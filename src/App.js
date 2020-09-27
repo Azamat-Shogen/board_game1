@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import Header from "./components/Header";
-import Panel from "./components/Panel";
+import Board from "./components/Board";
+
 
 const cellArr = [[0]];
 
@@ -12,25 +12,25 @@ function App() {
 
     //Todo create board
     const generateBoard = (widthValue, heightValue) =>{
-       const outer = [];
+        const outer = [];
 
-       for(let i = 0; i < heightValue; i++){
-           const inner = [];
-           for(let j = 0; j < widthValue; j++){
-               inner.push("");
-           }
-           outer.push(inner);
-       }
-       outer[0][0] = 0;
-       setCells(outer);
+        for(let i = 0; i < heightValue; i++){
+            const inner = [];
+            for(let j = 0; j < widthValue; j++){
+                inner.push("");
+            }
+            outer.push(inner);
+        }
+        outer[0][0] = 0;
+        setCells(outer);
     }
 
     //Todo move left
     const moveRight = (x, y)=>{
-      const a = [...cells];
-      const right = a.map(elem => elem.map(()=> ""));
-      right[x][y+1] = 0;
-      setCells(right);
+        const a = [...cells];
+        const right = a.map(elem => elem.map(()=> ""));
+        right[x][y+1] = 0;
+        setCells(right);
     }
 
     //Todo move right
@@ -49,7 +49,7 @@ function App() {
         setCells(down);
     }
 
-   //Todo move up
+    //Todo move up
     const moveUp = (x, y)=>{
         const a = [...cells];
         const up = a.map(elem => elem.map(()=> ""));
@@ -57,17 +57,18 @@ function App() {
         setCells(up);
     }
 
-  return (
-    <div className="App">
-      <Header generateBoard={generateBoard}/>
-      <hr/>
-      <Panel cells={cells}
-             moveLeft={moveLeft}
-             moveRight={moveRight}
-             moveDown={moveDown}
-             moveUp={moveUp}/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Board generateBoard={generateBoard}
+                    cells={cells}
+                    moveLeft={moveLeft}
+                    moveRight={moveRight}
+                    moveDown={moveDown}
+                    moveUp={moveUp}
+            />
+
+        </div>
+    );
 }
 
 export default App;
