@@ -25,8 +25,8 @@ function Header(props){
         setXPosition(0);
         setYPosition(0);
         props.generateBoard(widthValue, heightValue);
-        setWidthValue(1);
-        setHeightValue(1)
+        // setWidthValue(1);
+        // setHeightValue(1)
     }
 
     //Todo prevent from entering non digit characters
