@@ -1,2 +1,2 @@
-### A moving cat along the board
-### live app: https://azamat-shogen.github.io/board_game1/
+### display a board
+### demo: https://azamat-shogen.github.io/board_game1/
